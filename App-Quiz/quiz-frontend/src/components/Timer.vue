@@ -6,7 +6,7 @@
   
   
   <script setup>
-    import { defineProps, defineEmits, ref } from 'vue';
+
   defineProps(['initialTime']);
   defineEmits(['timerEnded']);
   
