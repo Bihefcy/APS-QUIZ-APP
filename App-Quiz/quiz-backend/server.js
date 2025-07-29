@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -31,7 +32,11 @@ console.log('Routes registered')
 
 // Connect to MongoDB
 mongoose
-  .connect('mongodb+srv://vicarowosafe:S8NZwQ5U6meW6cY2@quizdb.ijmg4.mongodb.net/')
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    //useCreateIndex: true, // Deprecated in Mongoose 6
+  })
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('Failed to connect to MongoDB:', err));
 
